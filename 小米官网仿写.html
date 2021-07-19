@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小米商城</title>
+    <style>
+        div {
+            width: 100%;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:link {
+            color: rgb(196, 196, 177);
+        }
+        a:visited {
+            color: rgb(196, 196, 177);
+        }
+        a:hover {
+            color: rgb(255, 255, 255);
+        }
+        .headtitle {
+            background-color: rgb(37, 35, 35);
+            height: 40px;
+            line-height: 40px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: rgb(169, 170, 170);
+            font-size: 7px;
+            font-weight: 300;
+        }
+        .headtitle a {
+            display: inline-block;
+            width: auto;
+            margin: 0 4px;
+        }
+        .firstsearch {
+            height: 120px;
+            line-height: 100px;
+            font-size: 24px;
+            text-align: center;
+            margin-top: 40px;
+            position: relative;
+        }
+        .firstsearch div {
+            height: 120px;
+            width: 650px;
+            position: absolute;
+            top: 0;
+            left: 350px;
+        }
+        .firstsearch a {
+            display: inline-block;
+            height: 0px;
+            color: black;
+            font-size: 17px;
+            font-weight: 200;
+            padding: 0px 3px;
+            background-color: aqua;
+        }
+        .firstsearch a:hover {
+            color: rgb(241, 133, 32);
+        }
+        .firstsearch .search {
+            height: 50px;
+            width: 250px;
+            position: absolute;
+            top: 25px;
+            left: 1050px;
+            border: solid 1px rgb(100, 100, 100,.4);
+            font-size: 16px;
+            color: rgb(107, 110, 112,.5);
+        }
+        .searchnew {
+            height: 50px;
+            width: 250px;
+            position: absolute;
+            top: 25px;
+            left: 1050px;
+            border: solid 1px rgb(100, 100, 100,.4);
+            font-size: 16px;
+            color: rgba(0, 0, 0);
+        }
+        .firstsearch .sub {
+            position: absolute;
+            top:25px;
+            left: 1299px;
+            height: 50px;
+            width: 50px;
+            background-color: rgb(255, 255, 255);
+            transition: all .3s ease;
+            border: solid 1px rgb(100, 100, 100,.4);
+        }
+        .firstsearch .sub:hover {
+            background-color: rgb(240, 120, 40);
+        }
+    </style>
+</head>
+<body>
+    <div class="headtitle">
+        <span style="width: 150px;display: inline-block;"></span>
+        <a href="#">小米商城</a>|
+        <a href="">MIUI</a>|
+        <a href="">loT</a>|
+        <a href="">云服务</a>|
+        <a href="">天星数科</a>|
+        <a href="">有品</a>|
+        <a href="">小爱开放平台</a>|
+        <a href="">企业团购</a>|
+        <a href="">资质证照</a>|
+        <a href="">协议规则</a>|
+        <a href="">下载app</a>|
+        <a href="">智能生活</a>|
+        <a href="">Select Location</a>
+        <span style="width: 180px;display: inline-block;"></span>
+        <a href="">登陆</a>
+        <a href="">注册</a>
+        <a href="">消息通知</a>
+        <a href="#" style="background-color: rgb(73, 78, 78);padding: 0 20px;"><img src="小米素材/购物车.jfif" style="height: 15px;width: 15px;">购物车(0)</a>
+    </div>
+    <div class="firstsearch">
+        <img src="小米素材/logo-mi2.png" style="height: 60px;width: 60px;position: absolute;top: 25px;left: 135px;">
+        <div>
+            <a href="#">小米手机</a>
+            <a href="#">Redmi红米</a>
+            <a href="#">电视</a>
+            <a href="#">笔记本</a>
+            <a href="#">家电</a>
+            <a href="#">路由器</a>
+            <a href="#">智能硬件</a>
+            <a href="#">服务</a>
+            <a href="#">社区</a>
+        </div>
+        <input type="search" class="search" id="searchin" value="">
+        <input type="submit" class="sub" id="subbutton" value="🔍">
+    </div>
+    <script>
+       
+        var search = document.getElementById('searchin');
+        var subbutter = document.getElementById('subbutton');
+        var time = 1;
+        function textshow(){
+            if(time == 1)
+                search.value = '【以旧换新】至低0元换新机';
+            else if(time == 2 )
+              search.value = '智能';
+            else if(time == 3 )
+              search.value = '小米11';
+            else if(time == 4){
+                search.value = '黑鲨4';
+                time=0;
+            }
+               time++;
+                setTimeout(textshow,5000); 
+        };  
+        textshow();
+        search.onfocus = function(){
+            if(time>=1&&time<=4)
+            {
+                search.value = '';
+                search.className = 'searchnew';
+            }
+            
+            time = 10;
+        }
+        search.onblur = function(){
+        if(search.value=='')
+        {
+            search.className = 'search';
+            search.value = '【以旧换新】至低0元换新机';
+                time=1;
+        }
+            }
+    </script>
+</body>
+</html>
